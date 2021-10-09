@@ -5,7 +5,7 @@ using std::string;
 
 int draw_menu() {
     int user_choice;
-    std::cout << "Main Menu\n\n";
+    std::cout << "\nMain Menu\n\n";
     std::cout << "1- Get GC Content\n";
     std::cout << "2- Get DNA Complement\n";
     std::cout << "3- Exit\n";
