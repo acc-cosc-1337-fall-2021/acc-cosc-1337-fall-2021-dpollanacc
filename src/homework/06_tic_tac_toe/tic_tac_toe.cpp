@@ -82,7 +82,7 @@ string TicTacToe::get_winner() {
 }
 
 bool TicTacToe::check_column_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- Hacky solution to a weird constraint that I must call set_next_player in mark_board function
+	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this, had to do it this way because we call set_next_player in mark_board
 	// Check each columm if Player has marked all 3 board locations
 	if ((pegs[0] == previous_player) && (pegs[3] == previous_player) && (pegs[6] == previous_player)) {
 		TicTacToe::set_winner();
@@ -100,7 +100,7 @@ bool TicTacToe::check_column_win() {
 }
 
 bool TicTacToe::check_row_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- Hacky solution to a weird constraint that I must call set_next_player in mark_board function
+	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this
 	// Check each row if Player has marked all 3 board locations
 	if ((pegs[0] == previous_player) && (pegs[1] == previous_player) && (pegs[2] == previous_player)) {
 		TicTacToe::set_winner();
@@ -118,7 +118,7 @@ bool TicTacToe::check_row_win() {
 }
 
 bool TicTacToe::check_diagonal_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- Hacky solution to a weird constraint that I must call set_next_player in mark_board function
+	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this
 	// Check diagonal lines if Player has marked all 3 board locations
 	if ((pegs[0] == previous_player) && (pegs[4] == previous_player) && (pegs[8] == previous_player)) {
 		TicTacToe::set_winner();
@@ -132,9 +132,6 @@ bool TicTacToe::check_diagonal_win() {
 }
 
 void TicTacToe::set_winner() {
-	// Since we call set_next_player before calling game_over we want to return the player who previously played and not the player currently playing.
-	// If I could call set_next_player separately after checking for a win or in its onwn function in main this wouldn't be necessary.  
-	// So checking the board AFTER we switched players when the board got marked is by design per the instructions. 
 	string previous_player = player == "X" ? "O" : "X";
 	TicTacToe::winner = previous_player;
 }
