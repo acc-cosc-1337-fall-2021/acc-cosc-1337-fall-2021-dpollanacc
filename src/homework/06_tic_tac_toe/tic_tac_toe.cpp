@@ -28,7 +28,6 @@ bool TicTacToe::game_over() {
 		}
 
 		if ( ( game_is_over == false ) && ( check_board_full() ) ) {
-			//TicTacToe::set_winner('C');  // <-- Overload set winner to get TicTacToe::winner to become C for Tie Case
 			TicTacToe::winner = "C";
 			game_is_over = true;
 		}
