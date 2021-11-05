@@ -1,4 +1,5 @@
 //h
+#include<iostream>
 #include<string>
 #include<vector>
 
@@ -6,6 +7,8 @@ using std::cout;
 using std::cin;
 using std::string;
 using std::vector;
+using std::ostream;
+using std::istream;
 
 #ifndef TIC_TAC_TOE
 #define TIC_TAC_TOE
@@ -16,10 +19,13 @@ public:
 	void mark_board(int position);
 	std::string get_player()const;
 	std::string get_winner();
-	void display_board()const;
 	void set_next_player();
 	bool check_board_full();
 	void clear_board();
+
+	friend ostream& operator<<(ostream& out, const TicTacToe& game);
+	friend istream& operator>>(istream& in, TicTacToe& game);
+	
 
 private:
 	string player;

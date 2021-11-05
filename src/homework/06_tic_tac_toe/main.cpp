@@ -1,8 +1,10 @@
 #include<iostream>
+#include<vector>
 #include<string>
+#include"tic_tac_toe_manager.h"
 #include"tic_tac_toe.h"
 
-using std::cout;
+using std::cout; using std::cin; using std::string; using std::vector; using std::endl;
 
 int main() 
 {
@@ -12,6 +14,10 @@ int main()
 	int position_selection;
 	int continue_exit_selection;
 
+	// Initialize game and game manager
+	TicTacToeManager manager;
+
+	//Initialize game
 	TicTacToe game;
 	cout << "\nWelcome to Tic Tac Toe\nWho is playing first (X or O)?  ";
 	cin >> starting_player;
@@ -28,21 +34,16 @@ int main()
 
 	while (continue_game) {
 		while (game.game_over() == false) {
-			current_player = game.get_player(); 
-			cout << "\nPlayer " << current_player << " select position: ";
-			cin >> position_selection;
-			game.mark_board(position_selection);
-			game.display_board();
+			cin >> game;
+			cout << game;
 		}
 		//Announce game over
-		if (game.get_winner() == "C") {
-			cout << "The game is a tie.\n";
-		} else {
-			cout << "The winner is " << game.get_winner() << ".\n";
-		}
+		cout << "\n\nGame Over.\n\n";
+
+		manager.save_game(game);
 
 		//Draw the board
-		game.display_board();
+		cout << game;
 
 		//clear the game
 		game.clear_board();
@@ -58,6 +59,8 @@ int main()
 			game.start_game(starting_player);
 		}
 	}
+
+	cout << manager;
 
 	return 0;
 }

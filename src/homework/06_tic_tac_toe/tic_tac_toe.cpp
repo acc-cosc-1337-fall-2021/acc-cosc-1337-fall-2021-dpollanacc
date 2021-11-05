@@ -48,14 +48,6 @@ string TicTacToe::get_player() const {
 	return TicTacToe::player;
 }
 
-void TicTacToe::display_board() const {
-	cout << "   " << pegs[0] << " | " << pegs[1] << " | " << pegs[2] << "   \n";
-	cout << "   --|---|--\n";
-	cout << "   " << pegs[3] << " | " << pegs[4] << " | " << pegs[5] << "   \n";
-	cout << "   --|---|--\n";
-	cout << "   " << pegs[6] << " | " << pegs[7] << " | " << pegs[8] << "   \n";
-}
-
 void TicTacToe::set_next_player() {
 	TicTacToe::player = TicTacToe::player == "X" ? "O" : "X";
 }
@@ -133,4 +125,21 @@ bool TicTacToe::check_diagonal_win() {
 void TicTacToe::set_winner() {
 	string previous_player = player == "X" ? "O" : "X";
 	TicTacToe::winner = previous_player;
+}
+
+ostream& operator<<(ostream& out, const TicTacToe& game) {
+	cout << "   " << game.pegs[0] << " | " << game.pegs[1] << " | " << game.pegs[2] << "   \n";
+	cout << "   --|---|--\n";
+	cout << "   " << game.pegs[3] << " | " << game.pegs[4] << " | " << game.pegs[5] << "   \n";
+	cout << "   --|---|--\n";
+	cout << "   " << game.pegs[6] << " | " << game.pegs[7] << " | " << game.pegs[8] << "   \n";
+	return out;
+}
+
+istream& operator>>(istream& in, TicTacToe& game) {
+	int pos;
+	cout << "\nPlayer " << game.player << "'s Turn\nEnter Position: "; 
+	cin >> pos;
+	game.mark_board(pos);
+	return in;
 }
