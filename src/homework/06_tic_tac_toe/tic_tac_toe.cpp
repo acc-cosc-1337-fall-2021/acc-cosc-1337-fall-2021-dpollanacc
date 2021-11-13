@@ -14,16 +14,16 @@ bool TicTacToe::game_over() {
 		bool game_is_over = false;
 
 		// Add checks for all the win conditions
-		if (TicTacToe::check_column_win()) {
-			TicTacToe::set_winner();
+		if (this->check_column_win()) {
+			this->set_winner();
 			game_is_over = true;
 		}
-		if (check_row_win()) {
-			TicTacToe::set_winner();
+		if (this->check_row_win()) {
+			this->set_winner();
 			game_is_over =  true;
 		}
-		if (check_diagonal_win()) {
-			TicTacToe::set_winner();
+		if (this->check_diagonal_win()) {
+			this->set_winner();
 			game_is_over = true;
 		}
 
@@ -73,58 +73,20 @@ string TicTacToe::get_winner() {
 }
 
 bool TicTacToe::check_column_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this, had to do it this way because we call set_next_player in mark_board
-	// Check each columm if Player has marked all 3 board locations
-	if ((pegs[0] == previous_player) && (pegs[3] == previous_player) && (pegs[6] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
-	if ((pegs[1] == previous_player) && (pegs[4] == previous_player) && (pegs[7] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
-	if ((pegs[2] == previous_player) && (pegs[5] == previous_player) && (pegs[8] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
 	return false;
 }
 
 bool TicTacToe::check_row_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this
-	// Check each row if Player has marked all 3 board locations
-	if ((pegs[0] == previous_player) && (pegs[1] == previous_player) && (pegs[2] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
-	if ((pegs[3] == previous_player) && (pegs[4] == previous_player) && (pegs[5] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
-	if ((pegs[6] == previous_player) && (pegs[7] == previous_player) && (pegs[8] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
 	return false;
 }
 
 bool TicTacToe::check_diagonal_win() {
-	string previous_player = player == "X" ? "O" : "X"; // <-- TODO: Try to find a better way of handling this
-	// Check diagonal lines if Player has marked all 3 board locations
-	if ((pegs[0] == previous_player) && (pegs[4] == previous_player) && (pegs[8] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
-	if ((pegs[2] == previous_player) && (pegs[4] == previous_player) && (pegs[6] == previous_player)) {
-		TicTacToe::set_winner();
-		return true;
-	}
 	return false;
 }
 
 void TicTacToe::set_winner() {
-	string previous_player = player == "X" ? "O" : "X";
-	TicTacToe::winner = previous_player;
+	string previous_player = this->get_player() == "X" ? "O" : "X";
+	this->winner = previous_player;
 }
 
 ostream& operator<<(ostream& out, const TicTacToe& game) {

@@ -3,6 +3,8 @@
 #include<string>
 #include"tic_tac_toe_manager.h"
 #include"tic_tac_toe.h"
+#include"tic_tac_toe_3.h"
+#include"tic_tac_toe_4.h"
 
 using std::cout; using std::cin; using std::string; using std::vector; using std::endl;
 
@@ -18,7 +20,7 @@ int main()
 	TicTacToeManager manager;
 
 	//Initialize game
-	TicTacToe game;
+	TicTacToe3 game;
 	cout << "\nWelcome to Tic Tac Toe\nWho is playing first (X or O)?  ";
 	cin >> starting_player;
 
