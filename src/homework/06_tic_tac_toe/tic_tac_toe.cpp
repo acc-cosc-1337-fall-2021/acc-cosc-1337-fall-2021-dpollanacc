@@ -90,11 +90,24 @@ void TicTacToe::set_winner() {
 }
 
 ostream& operator<<(ostream& out, const TicTacToe& game) {
-	cout << "   " << game.pegs[0] << " | " << game.pegs[1] << " | " << game.pegs[2] << "   \n";
-	cout << "   --|---|--\n";
-	cout << "   " << game.pegs[3] << " | " << game.pegs[4] << " | " << game.pegs[5] << "   \n";
-	cout << "   --|---|--\n";
-	cout << "   " << game.pegs[6] << " | " << game.pegs[7] << " | " << game.pegs[8] << "   \n";
+	if (game.pegs.size() == 9) {
+		cout << "   " << game.pegs[0] << " | " << game.pegs[1] << " | " << game.pegs[2] << "   \n";
+		cout << "   --|---|--\n";
+		cout << "   " << game.pegs[3] << " | " << game.pegs[4] << " | " << game.pegs[5] << "   \n";
+		cout << "   --|---|--\n";
+		cout << "   " << game.pegs[6] << " | " << game.pegs[7] << " | " << game.pegs[8] << "   \n";
+		return out;
+	}
+	if (game.pegs.size() == 16) {
+			cout << "   " << game.pegs[0] << " | " << game.pegs[1] << " | " << game.pegs[2] << " | "  << game.pegs[3] << "   \n";
+		cout << "   --|---|---|--\n";
+		cout << "   " << game.pegs[4] << " | " << game.pegs[5] << " | " << game.pegs[6] << " | "  << game.pegs[7] << "   \n";
+		cout << "   --|---|---|--\n";
+		cout << "   " << game.pegs[8] << " | " << game.pegs[9] << " | " << game.pegs[10] << " | "  << game.pegs[11] << "   \n";
+		cout << "   --|---|---|--\n";
+		cout << "   " << game.pegs[12] << " | " << game.pegs[13] << " | " << game.pegs[14] << " | " << game.pegs[15] << "   \n";
+		return out;
+	}
 	return out;
 }
 

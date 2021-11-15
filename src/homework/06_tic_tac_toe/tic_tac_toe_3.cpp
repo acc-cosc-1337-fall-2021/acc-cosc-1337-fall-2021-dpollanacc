@@ -57,6 +57,7 @@ void TicTacToe3::set_winner() {
 	winner = previous_player;
 }
 
+
 /*
 class function check_column_win
 Win by column if and return true if

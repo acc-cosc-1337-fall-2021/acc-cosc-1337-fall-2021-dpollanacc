@@ -18,6 +18,8 @@ class TicTacToe3 : public TicTacToe
 {
 public:
     TicTacToe3(): TicTacToe(3){}
+    friend ostream& operator<<(ostream& out, const TicTacToe3& game);
+	friend istream& operator>>(istream& in, TicTacToe3& game);
 
 private:
     bool check_column_win();
