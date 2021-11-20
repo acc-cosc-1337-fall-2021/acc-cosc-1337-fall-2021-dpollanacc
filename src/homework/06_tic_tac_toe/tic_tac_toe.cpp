@@ -39,6 +39,7 @@ void TicTacToe::start_game(std::string first_player) {
 	clear_board();
 }
 
+
 void TicTacToe::mark_board(int position) {
 	pegs[position - 1] = TicTacToe::player;
 	set_next_player();
@@ -66,6 +67,10 @@ void TicTacToe::clear_board() {
 	for (unsigned int i = 0; i < pegs.size(); i++) {
 		pegs[i] = " ";
 	}
+}
+
+vector<string> TicTacToe::get_pegs()const {
+	return pegs;
 }
 
 string TicTacToe::get_winner() {

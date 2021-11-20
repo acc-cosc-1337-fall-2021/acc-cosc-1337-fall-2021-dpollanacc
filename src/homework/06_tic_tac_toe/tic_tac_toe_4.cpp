@@ -59,6 +59,14 @@ bool TicTacToe4::check_diagonal_win() {
 	return false;
 }
 
+std::string TicTacToe4::get_pegs() {
+	string result;
+	for (unsigned int i = 0; i < pegs.size(); i++) {
+		result += pegs[i];
+	}
+	return result;
+}
+
 
 
 

@@ -52,6 +52,14 @@ bool TicTacToe3::check_diagonal_win() {
 	return false;
 }
 
+std::string TicTacToe3::get_pegs() {
+	string result;
+	for (unsigned int i = 0; i < pegs.size(); i++) {
+		result += pegs[i];
+	}
+	return result;
+}
+
 void TicTacToe3::set_winner() {
 	string previous_player = this->get_player() == "X" ? "O" : "X";
 	winner = previous_player;

@@ -19,7 +19,8 @@ int main()
 	int continue_exit_selection;
 
 	// Initialize game manager
-	TicTacToeManager manager;
+	TicTacToeData d;
+	TicTacToeManager manager(d);
 	unique_ptr<TicTacToe> game;
 
 	//Initialize game

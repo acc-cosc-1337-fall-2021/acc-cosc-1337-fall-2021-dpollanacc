@@ -17,7 +17,9 @@ using std::istream;
 class TicTacToe3 : public TicTacToe 
 {
 public:
-    TicTacToe3(): TicTacToe(3){}
+    TicTacToe3(): TicTacToe(3){};
+    TicTacToe3(vector<string> p, string winner): TicTacToe(p, winner){};
+    string get_pegs();
     friend ostream& operator<<(ostream& out, const TicTacToe3& game);
 	friend istream& operator>>(istream& in, TicTacToe3& game);
 
@@ -29,7 +31,4 @@ private:
     string player;
     string winner;
 };
-
-
-
 #endif
