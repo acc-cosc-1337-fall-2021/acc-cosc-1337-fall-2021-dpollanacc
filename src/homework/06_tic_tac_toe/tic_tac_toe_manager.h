@@ -16,10 +16,10 @@ using std::vector;
 class TicTacToeManager {
 public:
     TicTacToeManager() = default;
-    TicTacToeManager(TicTacToeData& initializer);
+    TicTacToeManager(TicTacToeData d);
     TicTacToeManager(const TicTacToeManager &copy);
     ~TicTacToeManager();
-    void save_game(TicTacToe b);
+    void save_game(std::unique_ptr<TicTacToe>& b);
     void get_winner_totals(int& x, int& o, int&t);
     friend ostream& operator<<(std::ostream& out, TicTacToeManager& manager);
     void update_winner_count(string winner);

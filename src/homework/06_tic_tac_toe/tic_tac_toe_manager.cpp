@@ -11,13 +11,11 @@ using std::cin;
 using std::string;
 using std::vector;
 
-TicTacToeManager::TicTacToeManager(TicTacToeData& initializer) {
-    data = initializer;
+TicTacToeManager::TicTacToeManager(TicTacToeData d) : data(d) {
     games = data.get_games();
-    for (unsigned int i = 0; i < games.size(); i++) {
-        TicTacToe single_game = *games[i];
-        string winner = single_game.get_winner();
-        update_winner_count(winner);
+
+    for (auto&game : games) {
+        update_winner_count(game->get_winner()); 
     }
 }
 
@@ -33,11 +31,9 @@ TicTacToeManager::~TicTacToeManager() {
     data.save_games(games);
 }
 
-void TicTacToeManager::save_game(TicTacToe game) {
-    std::unique_ptr<TicTacToe> game_ptr = make_unique<TicTacToe>(std::move(game));
-    games.push_back(game_ptr);
-    update_winner_count(game.get_winner());
-    get_winner_totals(x_win, o_win, ties);
+void TicTacToeManager::save_game(std::unique_ptr<TicTacToe>& game) {
+    update_winner_count(game->get_winner());
+    games.push_back(std::move(game));
 }
 
 void TicTacToeManager::get_winner_totals(int& x, int& o, int&t) {

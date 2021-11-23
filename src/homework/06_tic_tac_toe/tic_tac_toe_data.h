@@ -13,6 +13,8 @@ using std::string; using std::make_unique;
 class TicTacToeData {
 public:
     void save_games(const std::vector<std::unique_ptr<TicTacToe>>& games);
-    vector<std::unique_ptr<TicTacToe>> get_games();
+    std::vector<std::unique_ptr<TicTacToe>> get_games();
+private:
+    std::string file_name{"games.dat"};
 };
 #endif

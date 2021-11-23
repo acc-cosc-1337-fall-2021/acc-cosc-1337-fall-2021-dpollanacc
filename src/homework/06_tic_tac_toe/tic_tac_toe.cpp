@@ -69,10 +69,6 @@ void TicTacToe::clear_board() {
 	}
 }
 
-vector<string> TicTacToe::get_pegs()const {
-	return pegs;
-}
-
 string TicTacToe::get_winner() {
 	return winner;
 }

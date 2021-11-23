@@ -18,8 +18,8 @@ class TicTacToe4 : public TicTacToe
 {
 public:
     TicTacToe4(): TicTacToe(4){};
-    TicTacToe4(vector<string> p, string winner): TicTacToe(p, winner){};
-    string get_pegs();
+    TicTacToe4(std::vector<string> p, std::string win): TicTacToe(p, win){};
+    std::string get_pegs();
     friend ostream& operator<<(ostream& out, const TicTacToe4& game);
 	friend istream& operator>>(istream& in, TicTacToe4& game);
 

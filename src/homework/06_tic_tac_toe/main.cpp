@@ -49,7 +49,7 @@ int main()
 		//Announce game over
 		cout << "\n\nGame Over.\n\n";
 
-		manager.save_game(*game);
+		manager.save_game(game);
 
 		//Draw the board
 		cout << *game;
